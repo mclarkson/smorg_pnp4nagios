@@ -1,5 +1,5 @@
 Name: pnp4nagios
-Version: 0.6.6
+Version: 0.6.14
 Release: 1
 
 Group: Applications/System
@@ -7,8 +7,8 @@ License: GPLv2
 URL: http://www.pnp4nagios.org/
 Source0: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-buildroot
-Packager: Darrin Wilkinson <darrin.wilkinson@nokia.com>
-Vendor: Nokia, Advanced Operations, Instrumentation & Tools
+Packager: Mark Clarkson <mark.clarkson@smorg.co.uk>
+Vendor: Smorg
 Summary: Nagios performance data analysis tool
 
 
