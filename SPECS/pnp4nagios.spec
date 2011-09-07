@@ -33,7 +33,9 @@ and stores them automatically into RRD-databases.
 
 
 %build
-%configure --bindir=%{_sbindir} \
+%configure --with-nagios-user=nagios \
+           --with-nagios-group=nagios \
+           --bindir=%{_sbindir} \
 	   --libexecdir=%{_libexecdir}/%{name} \
 	   --sysconfdir=%{_sysconfdir}/%{name} \
 	   --localstatedir=%{_localstatedir}/log/%{name} \
@@ -48,7 +50,7 @@ make %{?_smp_mflags} all
 rm -rf $RPM_BUILD_ROOT
 install -d -m 0755 ${RPM_BUILD_ROOT}/etc/httpd/conf.d
 
-make install DESTDIR=$RPM_BUILD_ROOT
+make install DESTDIR=$RPM_BUILD_ROOT INIT_OPTS= INSTALL_OPTS=
 make install-webconf DESTDIR=$RPM_BUILD_ROOT
 make install-config DESTDIR=$RPM_BUILD_ROOT
 make install-init DESTDIR=$RPM_BUILD_ROOT
