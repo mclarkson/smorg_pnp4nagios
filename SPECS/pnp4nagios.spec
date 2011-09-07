@@ -35,6 +35,7 @@ and stores them automatically into RRD-databases.
 %build
 %configure --with-nagios-user=nagios \
            --with-nagios-group=nagios \
+           --mandir=%{_mandir} \
            --bindir=%{_sbindir} \
 	   --libexecdir=%{_libexecdir}/%{name} \
 	   --sysconfdir=%{_sysconfdir}/%{name} \
