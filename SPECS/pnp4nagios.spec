@@ -92,11 +92,12 @@ fi
 %dir %{_sysconfdir}/pnp4nagios
 %dir %{_libexecdir}/pnp4nagios
 %config(noreplace) %{_sysconfdir}/pnp4nagios/*
-%{_libdir}/npcdmod.o
+#%{_libdir}/npcdmod.o
 %{_libdir}/kohana
 %{_sysconfdir}/httpd/conf.d/pnp4nagios.conf
 %attr(755,root,root) %{_libdir}/npcdmod.o
 %attr(755,root,root) %{_initrddir}/npcd
+%attr(755,root,root) %{_initrddir}/pnp_gearman_worker
 %attr(755,root,root) %{_sbindir}/npcd
 %attr(755,root,root) %{_libexecdir}/pnp4nagios/rrd_convert.pl
 %attr(755,root,root) %{_libexecdir}/pnp4nagios/verify_pnp_config.pl
@@ -106,4 +107,5 @@ fi
 %attr(755,nagios,nagios) %{_localstatedir}/log/%{name}
 %attr(755,nagios,nagios) %{_localstatedir}/spool/%{name}
 %{_datadir}/nagios/html/pnp4nagios 
+%{_mandir}/man8/npcd.8
 
