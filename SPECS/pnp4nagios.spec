@@ -51,9 +51,9 @@ rm -rf $RPM_BUILD_ROOT
 install -d -m 0755 ${RPM_BUILD_ROOT}/etc/httpd/conf.d
 
 make install DESTDIR=$RPM_BUILD_ROOT INIT_OPTS= INSTALL_OPTS=
-make install-webconf DESTDIR=$RPM_BUILD_ROOT
-make install-config DESTDIR=$RPM_BUILD_ROOT
-make install-init DESTDIR=$RPM_BUILD_ROOT
+make install-webconf DESTDIR=$RPM_BUILD_ROOT INIT_OPTS= INSTALL_OPTS=
+make install-config DESTDIR=$RPM_BUILD_ROOT INIT_OPTS= INSTALL_OPTS=
+make install-init DESTDIR=$RPM_BUILD_ROOT INIT_OPTS= INSTALL_OPTS=
 find $RPM_BUILD_ROOT/%{_sysconfdir}/pnp4nagios -name *-sample -exec rename "-sample" "" {} ';'
 sed -i -e 's|/usr/libexec/process_perfdata.pl|/usr/libexec/pnp4nagios/process_perfdata.pl|' \
        -e 's|^log_type = syslog|log_type = file|' \
