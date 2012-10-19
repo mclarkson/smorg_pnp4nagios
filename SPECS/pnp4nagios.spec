@@ -1,5 +1,5 @@
 Name: pnp4nagios
-Version: 0.6.14
+Version: 0.6.19
 Release: 1
 
 Group: Applications/System
