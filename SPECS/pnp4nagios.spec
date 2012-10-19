@@ -86,26 +86,33 @@ fi
 
 
 %files
-%defattr(644,root,root,755)
-%doc AUTHORS ChangeLog COPYING INSTALL README 
-%doc THANKS contrib/
-%dir %{_sysconfdir}/pnp4nagios
-%dir %{_libexecdir}/pnp4nagios
-%config(noreplace) %{_sysconfdir}/pnp4nagios/*
-#%{_libdir}/npcdmod.o
-%{_libdir}/kohana
-%{_sysconfdir}/httpd/conf.d/pnp4nagios.conf
-%attr(755,root,root) %{_libdir}/npcdmod.o
-%attr(755,root,root) %{_initrddir}/npcd
-%attr(755,root,root) %{_initrddir}/pnp_gearman_worker
-%attr(755,root,root) %{_sbindir}/npcd
-%attr(755,root,root) %{_libexecdir}/pnp4nagios/rrd_convert.pl
-%attr(755,root,root) %{_libexecdir}/pnp4nagios/verify_pnp_config.pl
-%attr(755,root,root) %{_libexecdir}/pnp4nagios/process_perfdata.pl
-%attr(755,root,root) %{_libexecdir}/pnp4nagios/check_pnp_rrds.pl
-%attr(755,nagios,nagios) %{_localstatedir}/lib/%{name}
-%attr(755,nagios,nagios) %{_localstatedir}/log/%{name}
-%attr(755,nagios,nagios) %{_localstatedir}/spool/%{name}
-%{_datadir}/nagios/html/pnp4nagios 
-/usr/man/man8/npcd.8
-
+%defattr(-,nagios,nagios,-)
+%doc AUTHORS
+%doc ChangeLog
+%doc COPYING
+%doc INSTALL
+%doc README
+%doc THANKS
+%config(noreplace) %{_sysconfdir}/%{name}/check_commands/check_all_local_disks.cfg-sample
+%config(noreplace) %{_sysconfdir}/%{name}/check_commands/check_nrpe.cfg-sample
+%config(noreplace) %{_sysconfdir}/%{name}/check_commands/check_nwstat.cfg
+%config(noreplace) %{_sysconfdir}/%{name}/npcd.cfg
+%config(noreplace) %{_sysconfdir}/%{name}/pages/web_traffic.cfg
+%config(noreplace) %{_sysconfdir}/%{name}/process_perfdata.cfg
+%config(noreplace) %{_sysconfdir}/%{name}/rra.cfg
+%config(noreplace) %{_sysconfdir}/httpd/conf.d/%{name}.conf
+%{_sysconfdir}/%{name}/background.pdf
+%{_sysconfdir}/%{name}/config.php
+%{_sysconfdir}/%{name}/misccommands.cfg-sample
+%{_sysconfdir}/%{name}/nagios.cfg-sample
+%{_sysconfdir}/%{name}/pnp4nagios_release
+%attr(755,root,root) %{_sysconfdir}/rc.d/init.d/npcd
+%attr(755,root,root) %{_sysconfdir}/rc.d/init.d/pnp_gearman_worker
+%{_bindir}/npcd
+%{_libdir}/pnp4nagios/npcdmod.o
+%{_libdir}/%{name}
+%{_libexecdir}/check_pnp_rrds.pl
+%{_libexecdir}/process_perfdata.pl
+%{_libexecdir}/rrd_convert.pl
+%{_datadir}/%{name}
+%{_mandir}/man8/npcd.8.gz
