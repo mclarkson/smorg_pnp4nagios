@@ -93,7 +93,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libexecdir}/process_perfdata.pl
 %{_libexecdir}/rrd_convert.pl
 %{_datadir}/%{name}
-%{_mandir}/man8/npcd.8.gz
+%{_mandir}/man8/npcd.8
 
 
 %changelog
