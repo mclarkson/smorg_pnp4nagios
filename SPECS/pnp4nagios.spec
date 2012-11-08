@@ -3,13 +3,18 @@
 Name:		pnp4nagios
 Version: 	0.6.16
 Release:	1
-Summary: 	PNP is not PerfParse. A Nagios/Icinga perfdata graphing solution
 
 Group:	 	Applications/System
 License:	GPLv2
 URL:		http://www.pnp4nagios.org/
-Source: 	http://downloads.sourceforge.net/pnp4nagios/%{name}-%{version}.tar.gz
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
+#Source: 	http://downloads.sourceforge.net/pnp4nagios/%{name}-%{version}.tar.gz
+Source0: %{name}-%{version}.tar.gz
+#BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
+BuildRoot: %{_tmppath}/%{name}-buildroot
+
+Packager: Mark Clarkson <mark.clarkson@smorg.co.uk>
+Vendor: Smorg
+Summary: Nagios performance data analysis tool
 
 BuildRequires:	rrdtool-devel
 BuildRequires:  perl-rrdtool
