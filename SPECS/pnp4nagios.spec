@@ -37,7 +37,8 @@ sed -i -e 's/MANDIR=@mandir@/MANDIR=\/usr\/share\/man/' man/Makefile.in
 %configure --with-perfdata-logfile=%{_localstatedir}/log/nagios/perfdata.log \
 	--sysconfdir=%{_sysconfdir}/%{name} \
 	--datarootdir=%{_datadir}/%{name} \
-	--with-perfdata-dir=%{_datadir}/%{name}/perfdata \
+	--localstatedir=%{_localstatedir}/log/%{name} \
+	--with-perfdata-dir=%{_localstatedir}/lib/%{name} \
 	--with-perfdata-spool-dir=%{_localstatedir}/spool/nagios \
 	--mandir=%{_mandir} \
 	--libdir=%{_libdir}/%{name}  # only kohana is installed there and maybe we have a system wide kohana already
@@ -57,6 +58,10 @@ sed -i -e 's*log_file = /var/npcd.log*log_file = /var/log/nagios/npcd.log*' %{bu
 # drop local versioning, we already provide our own upgrade safety
 rm -f %{buildroot}%{_sysconfdir}/%{name}/config.php.%{version}
 rm -f %{buildroot}%{_sysconfdir}/%{name}/config_local.php
+
+sed -i -e 's|/usr/libexec/process_perfdata.pl|/usr/libexec/pnp4nagios/process_perfdata.pl|' \
+       -e 's|^log_type = syslog|log_type = file|' \
+       $RPM_BUILD_ROOT/%{_sysconfdir}/pnp4nagios/npcd.cfg
 
 mkdir -p $RPM_BUILD_ROOT%{_localstatedir}/lib/%{name}
 mkdir -p $RPM_BUILD_ROOT%{_localstatedir}/spool/%{name}
