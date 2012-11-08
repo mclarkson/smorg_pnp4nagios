@@ -58,6 +58,9 @@ sed -i -e 's*log_file = /var/npcd.log*log_file = /var/log/nagios/npcd.log*' %{bu
 rm -f %{buildroot}%{_sysconfdir}/%{name}/config.php.%{version}
 rm -f %{buildroot}%{_sysconfdir}/%{name}/config_local.php
 
+mkdir -p $RPM_BUILD_ROOT%{_localstatedir}/lib/%{name}
+mkdir -p $RPM_BUILD_ROOT%{_localstatedir}/spool/%{name}
+mkdir -p $RPM_BUILD_ROOT%{_localstatedir}/log/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
