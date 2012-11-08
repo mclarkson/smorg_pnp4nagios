@@ -63,6 +63,23 @@ rm -f %{buildroot}%{_sysconfdir}/%{name}/config_local.php
 rm -rf $RPM_BUILD_ROOT
 
 
+%post
+/sbin/chkconfig --add npcd
+
+
+%preun
+if [ $1 = 0 ]; then
+/sbin/service npcd stop >/dev/null 2>&1
+/sbin/chkconfig --del npcd
+fi
+
+
+%postun
+if [ "$1" -ge "1" ]; then
+/sbin/service npcd condrestart >/dev/null 2>&1 || :
+fi
+
+
 %files
 %defattr(-,nagios,nagios,-)
 %doc AUTHORS
@@ -92,11 +109,15 @@ rm -rf $RPM_BUILD_ROOT
 %{_libexecdir}/check_pnp_rrds.pl
 %{_libexecdir}/process_perfdata.pl
 %{_libexecdir}/rrd_convert.pl
+%{_libexecdir}/rrd_modify.pl
 %{_datadir}/%{name}
 %{_mandir}/man8/npcd.8
 
 
 %changelog
+* Thu Nov 08 2012 Mark Clarkson <mark.clarkson@smorg.co.uk> - 0.6.19-1
+- Updated to version 0.6.19
+
 * Mon Feb 06 2012 Michael Friedrich <michael.friedrich@univie.ac.at> - 0.6.16-1
 - Updated to version 0.6.16.
 - drop (Build)Requires nagios, we can use other core(s) as well
