@@ -168,7 +168,7 @@ for PKG in `( cd SPECS; ls *.spec )`; do
     #rm -rf BUILD/${NAME}-${VERSION} SOURCES/${NAME}-${VERSION}.tar.gz 
 
     echo "Cleaning SOURCES directory..."
-    rm -rf SOURCES/$NAME-$VERSION.*
+    find SOURCES/$NAME-$VERSION* ! -name "*.tar.gz" -exec rm -rf {} \;
 
 done
 
