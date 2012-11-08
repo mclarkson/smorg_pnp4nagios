@@ -1,7 +1,7 @@
 # $Id:$
 # Upstream:     pnp4nagios-devel@lists.sourceforge.net
 Name:		pnp4nagios
-Version: 	0.6.16
+Version: 	0.6.19
 Release:	1
 
 Group:	 	Applications/System
