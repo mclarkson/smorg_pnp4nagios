@@ -18,7 +18,7 @@ Summary: Nagios performance data analysis tool
 
 BuildRequires:	rrdtool-devel
 BuildRequires:  perl-rrdtool
-Requires:	rrdtool
+Requires:	rrdtool nagios
 Requires:	perl-rrdtool
 Obsoletes:	pnp
 
