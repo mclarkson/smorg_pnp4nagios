@@ -37,9 +37,9 @@ sed -i -e 's/MANDIR=@mandir@/MANDIR=\/usr\/share\/man/' man/Makefile.in
 %configure --with-perfdata-logfile=%{_localstatedir}/log/nagios/perfdata.log \
 	--sysconfdir=%{_sysconfdir}/%{name} \
 	--datarootdir=%{_datadir}/%{name} \
-	--localstatedir=%{_localstatedir}/log/%{name} \
+	--localstatedir=%{_localstatedir}/log/nagios/%{name} \
 	--with-perfdata-dir=%{_localstatedir}/lib/%{name} \
-	--with-perfdata-spool-dir=%{_localstatedir}/spool/nagios \
+	--with-perfdata-spool-dir=%{_localstatedir}/log/nagios/spool/%{name} \
 	--mandir=%{_mandir} \
 	--libdir=%{_libdir}/%{name}  # only kohana is installed there and maybe we have a system wide kohana already
 make %{?_smp_mflags} all
