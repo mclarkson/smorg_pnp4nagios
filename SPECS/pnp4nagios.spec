@@ -113,6 +113,9 @@ fi
 %{_libexecdir}/process_perfdata.pl
 %{_libexecdir}/rrd_convert.pl
 %{_libexecdir}/rrd_modify.pl
+%{_localstatedir}/lib
+%{_localstatedir}/spool
+%{_localstatedir}/log
 %{_datadir}/%{name}
 %{_mandir}/man8/npcd.8
 
