@@ -107,9 +107,6 @@ for PKG in `( cd SPECS; ls *.spec )`; do
     sed "s/^%define *version.*/%define version ${VERSION}.${POINTRELEASE}/g" \
     ${BASE}/SPECS/${PKG} > ${BASE}/TMP/${PKG}
 
-    echo "Cleaning SOURCES directory..."
-    rm -rf SOURCES/$NAME-$VERSION.*
-
     echo "Preparing sources for '${NAME}-${VERSION}'..."
 
 	if [[ -d SOURCES/${NAME}-${VERSION} ]]; then
@@ -169,6 +166,10 @@ for PKG in `( cd SPECS; ls *.spec )`; do
     fi
 
     #rm -rf BUILD/${NAME}-${VERSION} SOURCES/${NAME}-${VERSION}.tar.gz 
+
+    echo "Cleaning SOURCES directory..."
+    rm -rf SOURCES/$NAME-$VERSION.*
+
 done
 
 if [ ${GRV} -ne 0 ]; then 
