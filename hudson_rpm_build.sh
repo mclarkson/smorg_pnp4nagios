@@ -104,7 +104,7 @@ for PKG in `( cd SPECS; ls *.spec )`; do
 	echo "Package Release: $RELEASE"
 	echo "New Version No.: $VERSION-${POINTRELEASE}"
 
-    sed "s/^*Release:.*/Release: ${POINTRELEASE}/g" \
+    sed "s/^Release: .*/Release: ${POINTRELEASE}/g" \
     ${BASE}/SPECS/${PKG} > ${BASE}/TMP/${PKG}
 
     echo "Preparing sources for '${NAME}-${VERSION}'..."
