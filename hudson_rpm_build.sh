@@ -148,7 +148,12 @@ for PKG in `( cd SPECS; ls *.spec )`; do
     else 
         echo "Building un-signed package for '${NAME}-${VERSION}'..." 
         echo 
-        rpmbuild -ba --rcfile ${BASE}/TMP/rpmrc ${BASE}/TMP/${PKG} 
+        # RH5 -> rpmbuild -ba --rcfile ${BASE}/TMP/rpmrc ${BASE}/TMP/${PKG} 
+        # RH6 ->
+        if grep -qs 4\. /etc/redhat-release; then dist=.el4; fi
+        if grep -qs 5\. /etc/redhat-release; then dist=.el5; fi
+        if grep -qs 6\. /etc/redhat-release; then dist=.el6; fi
+        rpmbuild --define "_topdir ${BASE}" --define "dist $dist" -ba --rcfile ${BASE}/TMP/rpmrc ${BASE}/TMP/${PKG} 
     fi
 
     RV=$?
