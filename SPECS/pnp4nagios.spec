@@ -122,7 +122,7 @@ fi
 %{_localstatedir}/spool
 %{_localstatedir}/log
 %{_datadir}/%{name}
-%{_mandir}/man8/npcd.8
+%{_mandir}/man8/npcd.8.gz
 
 
 %changelog
