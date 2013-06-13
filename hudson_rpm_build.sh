@@ -21,6 +21,8 @@ for DIR in SOURCES SPECS; do
         fi 
 done
 
+. POINTRELEASE
+
 rm -rf TMP
 mkdir -p TMP BUILD RPMS SRPMS|| exit 1 
 rm -rf TMP/* BUILD/* RPMS/* SRPMS/*|| exit 1
@@ -95,11 +97,11 @@ for PKG in `( cd SPECS; ls *.spec )`; do
 		exit 2
 	}
 
-    SVN_REV=`svn info SOURCES | sed -n '/Revision:/ { s/Revision: //p }'`
-
-	echo "Subversion Revision: $SVN_REV"
-
-    POINTRELEASE=$SVN_REV
+    #SVN_REV=`svn info SOURCES | sed -n '/Revision:/ { s/Revision: //p }'`
+    #
+	#echo "Subversion Revision: $SVN_REV"
+    #
+    #POINTRELEASE=$SVN_REV
 
 	echo "Package Release: $RELEASE"
 	echo "New Version No.: $VERSION-${POINTRELEASE}"
