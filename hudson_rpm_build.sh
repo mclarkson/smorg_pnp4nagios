@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Script to build rpms from hudson
 
@@ -20,6 +20,12 @@ for DIR in SOURCES SPECS; do
                 exit 1 
         fi 
 done
+
+echo ----
+ls -lh
+echo ----
+cat POINTRELEASE
+echo ----
 
 . POINTRELEASE
 
