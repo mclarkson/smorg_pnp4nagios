@@ -106,7 +106,6 @@ fi
 %config(noreplace) %{_sysconfdir}/httpd/conf.d/%{name}.conf
 %{_sysconfdir}/%{name}/background.pdf
 %{_sysconfdir}/%{name}/config.php
-%{_sysconfdir}/%{name}/config.php.0.6.21
 %{_sysconfdir}/%{name}/misccommands.cfg-sample
 %{_sysconfdir}/%{name}/nagios.cfg-sample
 %{_sysconfdir}/%{name}/pnp4nagios_release
