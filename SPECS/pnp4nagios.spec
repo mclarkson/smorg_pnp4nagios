@@ -1,7 +1,7 @@
 # $Id:$
 # Upstream:     pnp4nagios-devel@lists.sourceforge.net
 Name: pnp4nagios
-Version: 0.6.20
+Version: 0.6.21
 Release: 1
 
 Group:	 	Applications/System
@@ -106,6 +106,7 @@ fi
 %config(noreplace) %{_sysconfdir}/httpd/conf.d/%{name}.conf
 %{_sysconfdir}/%{name}/background.pdf
 %{_sysconfdir}/%{name}/config.php
+%{_sysconfdir}/%{name}/config.php.0.6.21
 %{_sysconfdir}/%{name}/misccommands.cfg-sample
 %{_sysconfdir}/%{name}/nagios.cfg-sample
 %{_sysconfdir}/%{name}/pnp4nagios_release
@@ -126,8 +127,8 @@ fi
 
 
 %changelog
-* Tue Nov 19 2013 Mark Clarkson <mark.clarkson@smorg.co.uk> - 0.6.19-1
-- Updated to GIT version soon after 0.6.20
+* Tue Nov 19 2013 Mark Clarkson <mark.clarkson@smorg.co.uk> - 0.6.21-1
+- Updated to GIT version 0.6.21
 
 * Thu Nov 08 2012 Mark Clarkson <mark.clarkson@smorg.co.uk> - 0.6.19-1
 - Updated to version 0.6.19
