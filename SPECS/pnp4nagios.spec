@@ -1,7 +1,7 @@
 # $Id:$
 # Upstream:     pnp4nagios-devel@lists.sourceforge.net
 Name: pnp4nagios
-Version: 0.6.19
+Version: 0.6.20
 Release: 1
 
 Group:	 	Applications/System
@@ -126,6 +126,9 @@ fi
 
 
 %changelog
+* Tue Nov 19 2013 Mark Clarkson <mark.clarkson@smorg.co.uk> - 0.6.19-1
+- Updated to GIT version soon after 0.6.20
+
 * Thu Nov 08 2012 Mark Clarkson <mark.clarkson@smorg.co.uk> - 0.6.19-1
 - Updated to version 0.6.19
 
